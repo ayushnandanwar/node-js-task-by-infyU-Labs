@@ -1,0 +1,34 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Customer Form 
+        style 
+            include ../public/css/form.css
+            include ../public/util.css
+            include ../public/css/index.css
+    body 
+        header 
+            h1 Customer Portal 
+        nav 
+            a(href="/customers" class="btn btn-insert") See All Customers
+
+        
+        form(action=`${slug}` method="POST") 
+            div.inputBox 
+                label(for="user_name") Name 
+                input(type="text" id="name" name="user_name" value=`${data.user_name}` required)
+            div.inputBox 
+                label(for="user_email") Email
+                input(type="email" id="email" name="user_email" value=`${data.user_email}` required)
+            div.inputBox 
+                label(for="user_password") Password
+                input(type="password" id="password" name="user_password" value=`` required)
+            div.inputBox 
+                label(for="user_image") Image
+                input(type="text" id="image" name="user_image" value=`${data.user_image}` required)
+            button(type="submit" class="btn btn-insert")= action
+            
+        

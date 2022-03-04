@@ -1,0 +1,46 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Customer Details
+        style 
+            include ../public/css/index.css 
+            include ../public/util.css
+    body 
+        header 
+            h1 Custoomer Management System
+        nav 
+            a(href="/" class="btn btn-insert") Create Customer
+        div.count 
+            h3 Customer count: 
+                =count 
+
+        div.container 
+            table 
+                tr 
+                    th Sr No.
+                    th Profilc Picture
+                    th Username 
+                    th User Email 
+                    th Total Orders  
+                    th Created At 
+                    th Last Login
+                    th Delete 
+                    th Update
+                each d,i in data
+                    tr 
+                        td= i+1
+                        td= d.user_image
+                        td= d.user_name
+                        td= d.user_email 
+                        td= d.total_order
+                        td= d.created_at.toLocaleString()
+                        td= d.last_logged_in 
+                        td
+                            form(action=`/customers/delete/${d.user_id}?_method="DELETE"` method="POST")
+                                button(type="submit").btn.btn-delete Delete
+                        td 
+                            a(href=`customers/update/${d.user_id}`) 
+                                button.btn.btn-update Update
