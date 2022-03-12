@@ -31,7 +31,7 @@ const customerSchema = mongoose.Schema({
     },
     created_at:{
         type:Date,
-        default: Date.now
+        default: Date.now()
     },
     last_logged_in:{
         type:Date
